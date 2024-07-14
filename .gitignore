@@ -357,3 +357,5 @@ trace/meminit.bin
 trace/.cache
 trace/compile_commands.json
 trace/mySoC/CPUCore.v
+
+.direnv

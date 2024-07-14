@@ -11,26 +11,25 @@
       let
         pkgs = import nixpkgs { inherit system; };
         libPath = pkgs.lib.makeLibraryPath [ ]; # 外部库用在 nix 环境中
-      in
-      {
+      in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
+            # scala
+            sbt
+            temurin-bin-17
+            metals
+            mill
+            metals
+            bloop
+            # c++
+            # rocmPackages.llvm.clang-tools-extra
+            verilator
             # utils
             qemu
             (with pkgsCross.riscv64; [ glib.stdenv.cc buildPackages.gdb ])
-            # C++
-            clang
-            llvm_16
-            bear
-            bison
-            flex
-            SDL2
-            readline
-            gdb
+            yosys
+            verible
           ];
-          shellHook = ''
-            export NEMU_HOME=`pwd`
-          '';
         };
       });
 }
