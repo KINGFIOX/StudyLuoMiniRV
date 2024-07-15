@@ -18,9 +18,9 @@ class SoC extends Module {
   private def hex(s: String): BigInt = BigInt(s.filter(c => c != '_'), 16)
 
   val io = IO(new Bundle {
-    val switch = Input(UInt(24.W))
-    val button = Input(UInt(5.W))
-    val dig_en = Output(UInt(8.W))
+    val switch = Input(UInt(24.W)) // 拨码开关
+    val button = Input(UInt(5.W)) //
+    val dig_en = Output(UInt(8.W)) // 8 个数码管
     val DN_A   = Output(Bool())
     val DN_B   = Output(Bool())
     val DN_C   = Output(Bool())
