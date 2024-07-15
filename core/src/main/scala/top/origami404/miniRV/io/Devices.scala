@@ -116,7 +116,7 @@ class SevenSegDigital extends Module {
   io.led := decoder.io.led
 }
 
-/* ---------- ---------- 数码管 ---------- ---------- */
+/* ---------- ---------- DRAM ---------- ---------- */
 
 class DRAM_Bundle(val addr_w: Int, val enable_w: Int, val data_w: Int) extends Bundle {
   val addr         = Input(UInt(addr_w.W))
