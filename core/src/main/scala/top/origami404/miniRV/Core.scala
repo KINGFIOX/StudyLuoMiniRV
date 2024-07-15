@@ -9,7 +9,7 @@ import top.origami404.miniRV.InstDecoder
 import top.origami404.miniRV.RegFile
 import top.origami404.miniRV.utils.F
 
-class InstRAMBundle extends Bundle {
+class InstROMBundle extends Bundle {
   val inst_addr = Output(UInt(32.W))
   val inst      = Input(UInt(32.W))
 }
@@ -31,7 +31,7 @@ class DebugBundle extends Bundle {
 
 class CPUCore extends Module {
   val io = IO(new Bundle {
-    val inst_rom = new InstRAMBundle
+    val inst_rom = new InstROMBundle
     val bus      = new BusBundle
     val debug    = new DebugBundle
   })
@@ -157,7 +157,7 @@ class MEM_WB_Bundle extends Bundle {
 
 class IF extends Module {
   val io = IO(new Bundle {
-    val rom       = new InstRAMBundle
+    val rom       = new InstROMBundle
     val pc_stall  = Input(Bool())
     val pred_pipe = Flipped(new BPD_PIPE_Bundle)
     val pred      = new IF_BPD_Bundle
